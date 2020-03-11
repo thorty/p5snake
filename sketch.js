@@ -5,6 +5,9 @@ var isGameOver = true;
 
 function preload() {
   pixelfont = loadFont('assets/VT323-Regular.ttf');
+  soundFormats('wav');
+  damage = loadSound('assets/damage');
+  eat = loadSound('assets/eat');
 }
 
 function setup() {
@@ -13,7 +16,7 @@ function setup() {
 }
 
 function keyPressed() {
-  if (isGameOver) {
+  if (isGameOver) {    
     isGameOver = false;
     snake = new Snake();
     food = new Food();
@@ -46,6 +49,7 @@ function draw() {
     snake.show();
     food.show();
     if (snake.gameEnds()) {
+      damage.play();
       gameOver();
     }
   }
@@ -62,7 +66,7 @@ function startScreen() {
   text('Press Any Key to start!', width / resolution / 2, (height / resolution / 3) + 3);  
 }
 
-function gameOver() {
+function gameOver() {  
   isGameOver = true;
   textSize(4);
   textAlign(CENTER, CENTER);

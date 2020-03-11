@@ -59,6 +59,7 @@ class Snake {
     let x = this.body[this.body.length - 1].x;
     let y = this.body[this.body.length - 1].y;
     if (x === food.x && y === food.y) {
+      eat.play();
       this.grow(food.r, food.g, food.b);
       return true;
     } else {
