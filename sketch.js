@@ -1,35 +1,37 @@
 var snake;
 var food;
 var resolution = 20;
-var isGameOver = false;
+var isGameOver = true;
 
 function preload() {
-  pixelfont = loadFont('assets/VT323-Regular.ttf');    
+  pixelfont = loadFont('assets/VT323-Regular.ttf');
 }
 
 function setup() {
   createCanvas(600, 400);
   frameRate(10);
+  /*
   snake = new Snake();
   food = new Food();
   setDocumentBackground(food);
+  */
 }
 
 function keyPressed() {
-  if (isGameOver){
+  if (isGameOver) {
     isGameOver = false;
     snake = new Snake();
-    food = new Food();    
+    food = new Food();
     loop();
   }
   if (keyCode === LEFT_ARROW) {
-    snake.dir(-1,0);
+    snake.dir(-1, 0);
   } else if (keyCode === RIGHT_ARROW) {
-    snake.dir(1,0);
+    snake.dir(1, 0);
   } else if (keyCode === UP_ARROW) {
-    snake.dir(0,-1);
+    snake.dir(0, -1);
   } else if (keyCode === DOWN_ARROW) {
-    snake.dir(0,1);
+    snake.dir(0, 1);
   }
 }
 
@@ -38,30 +40,47 @@ function keyPressed() {
 function draw() {
   background(0);
   scale(resolution);
-  if(snake.eat(food)){
-    food = new Food();  
-    setDocumentBackground(food);  
-  }
-  snake.update();
-  snake.show();
-  food.show();
-  if(snake.gameEnds()){    
-    gameOver();
+  if (isGameOver) {
+    startScreen();
+  } else {
+    if (snake.eat(food)) {
+      food = new Food();
+      setDocumentBackground(food);
+    }
+    snake.update();
+    snake.show();
+    food.show();
+    if (snake.gameEnds()) {
+      gameOver();
+    }
   }
 }
 
+function startScreen() {  
+  textSize(2);
+  textAlign(CENTER, CENTER);
+  fill(200, 0, 180);
+  textFont(pixelfont);
+  text('You are what you eat!', width / resolution / 2, height / resolution / 3);
+  fill(220);
+  textSize(1);
+  text('Press Any Key to start!', width / resolution / 2, (height / resolution / 3) + 3);  
+}
 
-function gameOver() {   
+function gameOver() {
   isGameOver = true;
   textSize(4);
   textAlign(CENTER, CENTER);
   fill(250);
   textFont(pixelfont);
-  text('GAME OVER', width /resolution/ 2, height /resolution/ 2);  
+  text('GAME OVER', width / resolution / 2, height / resolution / 3);
+  fill(220);
+  textSize(1);
+  text('Press Any Key to start!', width / resolution / 2, (height / resolution / 3) + 3); 
   noLoop();
 }
 
-function setDocumentBackground(food){
-  document.body.style.backgroundColor = "rgb("+food.r+","+food.g+","+food.b+")"; 
+function setDocumentBackground(food) {
+  document.body.style.backgroundColor = "rgb(" + food.r + "," + food.g + "," + food.b + ")";
 }
 
