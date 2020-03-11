@@ -1,7 +1,7 @@
 var snake;
 var food;
 var resolution = 20;
-
+var isGameOver = false;
 
 function setup() {
   createCanvas(600, 400);
@@ -11,6 +11,12 @@ function setup() {
 }
 
 function keyPressed() {
+  if (isGameOver){
+    isGameOver = false;
+    snake = new Snake();
+    food = new Food();    
+    loop();
+  }
   if (keyCode === LEFT_ARROW) {
     snake.dir(-1,0);
   } else if (keyCode === RIGHT_ARROW) {
@@ -20,8 +26,9 @@ function keyPressed() {
   } else if (keyCode === DOWN_ARROW) {
     snake.dir(0,1);
   }
-
 }
+
+
 
 function draw() {
   background(0);
@@ -32,4 +39,18 @@ function draw() {
   snake.update();
   snake.show();
   food.show();
+  if(snake.gameEnds()){    
+    gameOver();
+  }
 }
+
+
+function gameOver() {   
+  isGameOver = true;
+  textSize(4);
+  textAlign(CENTER, CENTER);
+  fill(220, 50, 100);
+  text('GAME OVER', width /resolution/ 2, height /resolution/ 2);  
+  noLoop();
+}
+
