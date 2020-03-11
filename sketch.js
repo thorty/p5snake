@@ -9,12 +9,7 @@ function preload() {
 
 function setup() {
   createCanvas(600, 400);
-  frameRate(10);
-  /*
-  snake = new Snake();
-  food = new Food();
-  setDocumentBackground(food);
-  */
+  frameRate(10); 
 }
 
 function keyPressed() {

@@ -10,14 +10,31 @@ html, body {
 body {
   margin: 0;
   display: flex;
-  background-color: darkgray;
+  background-color: rgb(252, 55, 81);
   /* This centers our sketch horizontally. */
   justify-content: center;
 
   /* This centers our sketch vertically. */
   align-items: center;
 }
+a {
+  text-decoration: underline;
+  color: white;
+}
 
+a:hover {
+  text-decoration: underline;
+  font-weight:bold ;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%; 
+  color: white;
+  text-align: center;
+}
 
 
 canvas {
