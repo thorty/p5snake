@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:100,300");
+
+*, *::before, * ::after{
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  background-color: darkgray;
+  /* This centers our sketch horizontally. */
+  justify-content: center;
+
+  /* This centers our sketch vertically. */
+  align-items: center;
+}
+
+container{
+
+}
+
+canvas {
+  display: block;
+}
