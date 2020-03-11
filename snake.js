@@ -18,9 +18,10 @@ class Snake {
     for (b of this.body) {
       rect(b.x, b.y, 1, 1);
     }
-    fill(220);
-    textSize(1);
-    text(this.tails, floor(width/resolution/2), 1);  
+    fill(250);
+    textFont(pixelfont);
+    textSize(2);
+    text(this.tails, floor(width/resolution/2), 2);  
   }
 
   dir(x, y) {

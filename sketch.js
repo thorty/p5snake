@@ -3,11 +3,16 @@ var food;
 var resolution = 20;
 var isGameOver = false;
 
+function preload() {
+  pixelfont = loadFont('assets/VT323-Regular.ttf');    
+}
+
 function setup() {
   createCanvas(600, 400);
   frameRate(10);
   snake = new Snake();
   food = new Food();
+  setDocumentBackground(food);
 }
 
 function keyPressed() {
@@ -34,7 +39,8 @@ function draw() {
   background(0);
   scale(resolution);
   if(snake.eat(food)){
-    food = new Food();    
+    food = new Food();  
+    setDocumentBackground(food);  
   }
   snake.update();
   snake.show();
@@ -49,8 +55,13 @@ function gameOver() {
   isGameOver = true;
   textSize(4);
   textAlign(CENTER, CENTER);
-  fill(220, 50, 100);
+  fill(250);
+  textFont(pixelfont);
   text('GAME OVER', width /resolution/ 2, height /resolution/ 2);  
   noLoop();
+}
+
+function setDocumentBackground(food){
+  document.body.style.backgroundColor = "rgb("+food.r+","+food.g+","+food.b+")"; 
 }
 
