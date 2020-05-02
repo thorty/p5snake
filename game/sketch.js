@@ -80,6 +80,7 @@ function gameOver() {
 }
 
 function setDocumentBackground(food) {
-  document.body.style.backgroundColor = "rgb(" + food.r + "," + food.g + "," + food.b + ")";
+  //document.body.style.backgroundColor = "rgb(" + food.r + "," + food.g + "," + food.b + ")";
+  document.body.style.backgroundColor = food.palette;
 }
 

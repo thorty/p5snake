@@ -60,20 +60,21 @@ class Snake {
     let y = this.body[this.body.length - 1].y;
     if (x === food.x && y === food.y) {
       eat.play();
-      this.grow(food.r, food.g, food.b);
+      this.grow(food.palette);
       return true;
     } else {
       return false;
     }
   }
 
-  grow(r, g, b) {
+  grow(color) {
     this.tails++;
     let tail = this.body[this.body.length - 1].copy();
-    tail.r = r;
-    tail.g = g;
-    tail.b = b;
-    this.color = "rgb(" + floor(r) + "," + floor(g) + "," + floor(b) + ")";
+    // tail.r = r;
+    // tail.g = g;
+    // tail.b = b;
+    // this.color = "rgb(" + floor(r) + "," + floor(g) + "," + floor(b) + ")";
+    this.color = color;
     this.body.push(tail);
   }
 
