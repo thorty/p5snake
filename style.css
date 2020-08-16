@@ -13,7 +13,6 @@ body {
   background-color: rgb(252, 55, 81);
   /* This centers our sketch horizontally. */
   justify-content: center;
-
   /* This centers our sketch vertically. */
   align-items: center;
 }
@@ -25,6 +24,20 @@ a {
 a:hover {
   text-decoration: underline;
   font-weight:bold ;
+}
+
+
+.header {
+  position: fixed;
+  width: 100%; 
+  top: 50px; 
+  text-align: center;
+}
+
+
+.header h1 {
+  font-size: 30px;
+  font-family: Impact, Charcoal, sans-serif;
 }
 
 .footer {
