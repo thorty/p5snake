@@ -22,6 +22,7 @@ class Snake {
     textFont(pixelfont);
     textSize(2);
     text(this.tails, floor(width/resolution/2), 2);  
+    localStorage["count"] = this.tails;
   }
 
   dir(x, y) {

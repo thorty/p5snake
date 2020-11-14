@@ -1,0 +1,25 @@
+{
+  "name": "snake",
+  "version": "1.0.0",
+  "description": "Simple snake clone build with p5.js: https://p5js.org/",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thorty/p5snake.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thorty/p5snake/issues"
+  },
+  "homepage": "https://github.com/thorty/p5snake#readme",
+  "dependencies": {
+    "axios": "^0.20.0"
+  }
+}

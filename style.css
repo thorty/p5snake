@@ -49,6 +49,20 @@ a:hover {
   text-align: center;
 }
 
+@font-face {
+  font-family: pixelfont;
+  src: url(assets/VT323-Regular.ttf);
+}
+
+
+.highscorebody{
+  font-family: pixelfont;
+  color: white;
+  width: 600px;
+  height: 400px;
+  background-color: black;
+  padding: 10px ;
+}
 
 canvas {
   display: block;

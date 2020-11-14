@@ -77,6 +77,8 @@ function gameOver() {
   textSize(1);
   text('Press Any Key to start!', width / resolution / 2, (height / resolution / 3) + 3); 
   noLoop();
+  localStorage["key"] = value;
+  window.location = "highscore.html"
 }
 
 function setDocumentBackground(food) {
